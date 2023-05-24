@@ -1,5 +1,6 @@
 package com.freemarcket.catalogo.resources;
 
+import com.freemarcket.catalogo.DTO.CategoryDTO;
 import com.freemarcket.catalogo.entities.Category;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping (value = "/categories")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
     @GetMapping
-    public ResponseEntity<List<Category>> findAll(){
-        List<Category> list = new ArrayList<>();
-        list.add(new Category(1L, "Books"));
-        list.add(new Category(2L, "Eletronics"));
+    public ResponseEntity<List<CategoryDTO>> findAll() {
+        List<CategoryDTO> list = new ArrayList<>();
+        list.add(new CategoryDTO(1L, "Books"));
+        list.add(new CategoryDTO(2L, "Eletronics"));
         return ResponseEntity.ok().body(list);
 
     }
